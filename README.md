@@ -1,13 +1,6 @@
 # MockMind — AI Interview Preparation Platform 🚀
 
 MockMind is an AI-powered interview preparation platform designed to help students and job seekers prepare for technical interviews. It combines interview management, AI-generated interview questions, and intelligent answer evaluation to make interview preparation more structured and effective.
-
-## 🌐 Live Demo
-
-- **Frontend:** Add your deployed frontend URL here
-- **Backend API:** https://ai-interview-preparation-platform-2mby.onrender.com
-- **GitHub Repository:** https://github.com/aditipusnake25-cell/AI_Interview_Preparation_Platform
-
 ## ✨ Features
 
 ### 🔐 User Authentication
