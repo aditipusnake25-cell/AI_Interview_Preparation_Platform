@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="124" viewBox="0 0 520 124" fill="none">
+  <defs>
+    <linearGradient id="brand" x1="20" y1="14" x2="105" y2="106" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#28658A"/>
+      <stop offset="1" stop-color="#08785B"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="518" height="122" rx="24" fill="#0B2233" stroke="#294352" stroke-width="2"/>
+  <path d="M25 25C25 18.925 29.925 14 36 14H83C89.075 14 94 18.925 94 25V67C94 73.075 89.075 78 83 78H62L43 94V78H36C29.925 78 25 73.075 25 67V25Z" fill="url(#brand)"/>
+  <path d="M59.5 31V61M45 39.5L59.5 48L74 39.5M45 56L59.5 48L74 56" stroke="#F0F6F8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="45" cy="39.5" r="4.5" fill="#20B486"/>
+  <circle cx="74" cy="39.5" r="4.5" fill="#20B486"/>
+  <circle cx="45" cy="56" r="4.5" fill="#20B486"/>
+  <circle cx="74" cy="56" r="4.5" fill="#20B486"/>
+  <circle cx="59.5" cy="48" r="5" fill="#F0F6F8"/>
+  <text x="116" y="62" fill="#F0F6F8" font-family="Inter, Segoe UI, sans-serif" font-size="43" font-weight="750" letter-spacing="-2">Mock<tspan fill="#20B486">Mind</tspan></text>
+  <text x="118" y="89" fill="#A5B7C1" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="650" letter-spacing="3">AI INTERVIEW PRACTICE</text>
+</svg>

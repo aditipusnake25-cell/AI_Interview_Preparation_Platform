@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserPlus } from "lucide-react";
 import api from "../services/api";
+import AuthLayout from "../components/AuthLayout";
 
-function Register() {
+function Register({ theme, onThemeToggle }) {
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
@@ -31,12 +32,12 @@ function Register() {
   };
 
   return (
-    <section className="auth-page">
+    <AuthLayout theme={theme} onThemeToggle={onThemeToggle}>
       <form className="auth-card" onSubmit={handleSubmit}>
         <div className="auth-icon"><UserPlus size={27} /></div>
         <p className="eyebrow">START YOUR JOURNEY</p>
-        <h1>Create your account</h1>
-        <p className="muted">Prepare smarter for your next interview.</p>
+        <h2>Create your account</h2>
+        <p className="muted">Set up your space and start preparing with more confidence.</p>
 
         {error && <div className="error-message">{error}</div>}
 
@@ -57,7 +58,7 @@ function Register() {
           Already have an account? <Link to="/login">Sign in</Link>
         </p>
       </form>
-    </section>
+    </AuthLayout>
   );
 }
 

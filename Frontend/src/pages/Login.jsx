@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LogIn } from "lucide-react";
 import api from "../services/api";
+import AuthLayout from "../components/AuthLayout";
 
-function Login() {
+function Login({ theme, onThemeToggle }) {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -31,12 +32,12 @@ function Login() {
   };
 
   return (
-    <section className="auth-page">
+    <AuthLayout theme={theme} onThemeToggle={onThemeToggle}>
       <form className="auth-card" onSubmit={handleSubmit}>
-        <div className="auth-icon"><LogIn size={27} /></div>
+        <div className="auth-icon"><LogIn size={23} /></div>
         <p className="eyebrow">WELCOME BACK</p>
-        <h1>Sign in to InterviewMate</h1>
-        <p className="muted">Your next opportunity starts with practice.</p>
+        <h2>Sign in to MockMind</h2>
+        <p className="muted">Pick up where you left off and keep your momentum going.</p>
 
         {error && <div className="error-message">{error}</div>}
 
@@ -54,7 +55,7 @@ function Login() {
           Don't have an account? <Link to="/register">Create one</Link>
         </p>
       </form>
-    </section>
+    </AuthLayout>
   );
 }
 

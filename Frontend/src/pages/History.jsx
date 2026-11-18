@@ -37,13 +37,17 @@ function History() {
 
   return (
     <div className="page-container">
-      <div className="section-heading history-heading">
+      <div className="history-hero">
         <div>
-          <p className="eyebrow">YOUR PROGRESS</p>
+          <p className="eyebrow"><CalendarDays size={14} /> YOUR PROGRESS</p>
           <h1>Interview history</h1>
-          <p>See the practice sessions you've created.</p>
+          <p>All your practice sessions, together in one place.</p>
         </div>
-        <Link to="/create-interview" className="primary-button"><Plus size={18} /> New interview</Link>
+        <div className="history-hero-side">
+          <span className="history-count">{loading ? "…" : interviews.length}</span>
+          <span>practice sessions</span>
+          <Link to="/create-interview" className="primary-button"><Plus size={18} /> New interview</Link>
+        </div>
       </div>
 
       {error && <div className="error-message">{error}</div>}

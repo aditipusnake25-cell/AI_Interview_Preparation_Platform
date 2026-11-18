@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BrainCircuit, Clock3, Plus, Target, Trophy } from "lucide-react";
+import { ArrowRight, BrainCircuit, Clock3, Plus, Target, Trophy, Sparkles } from "lucide-react";
 import api from "../services/api";
 
 function Dashboard() {
   const [interviews, setInterviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  let user = {};
+  try {
+    user = JSON.parse(localStorage.getItem("user") || "{}");
+  } catch {
+    user = {};
+  }
 
   useEffect(() => {
     const loadInterviews = async () => {
@@ -36,22 +41,27 @@ function Dashboard() {
   return (
     <div className="page-container">
       <section className="welcome-banner">
-        <div>
-          <p className="eyebrow light-eyebrow">YOUR PERSONAL INTERVIEW COACH</p>
-          <h1>Welcome back{user.name ? `, ${user.name.split(" ")[0]}` : ""}!</h1>
-          <p>Build confidence, practice your skills, and get ready for your next opportunity.</p>
+        <div className="welcome-copy">
+          <p className="eyebrow light-eyebrow"><Sparkles size={13} /> YOUR PERSONAL INTERVIEW COACH</p>
+          <h1>Ready when you are{user.name ? `, ${user.name.split(" ")[0]}` : ""}.</h1>
+          <p>Build confidence one answer at a time. Your next opportunity starts with practice.</p>
           <Link to="/create-interview" className="banner-button">
-            Start practicing <ArrowRight size={18} />
+            Start a practice session <ArrowRight size={18} />
           </Link>
         </div>
-        <div className="banner-art"><BrainCircuit size={105} strokeWidth={1.2} /></div>
+        <div className="banner-art">
+          <div className="banner-orbit"><BrainCircuit size={74} strokeWidth={1.3} /></div>
+          <span className="banner-spark banner-spark-one"><Sparkles size={17} /></span>
+          <span className="banner-spark banner-spark-two"><Sparkles size={12} /></span>
+          <span className="banner-caption">Your next step starts here</span>
+        </div>
       </section>
 
       {error && <div className="error-message">{error}</div>}
 
       <section className="stats-grid">
         <article className="stat-card">
-          <span className="stat-icon purple"><Target size={22} /></span>
+          <span className="stat-icon blue"><Target size={22} /></span>
           <p>Total interviews</p>
           <h2>{loading ? "..." : interviews.length}</h2>
           <span className="stat-caption">Practice sessions created</span>
@@ -65,7 +75,7 @@ function Dashboard() {
         </article>
 
         <article className="stat-card">
-          <span className="stat-icon orange"><Target size={22} /></span>
+          <span className="stat-icon mint"><Target size={22} /></span>
           <p>Average score</p>
           <h2>{loading ? "..." : averageScore}{averageScore !== "—" ? "/10" : ""}</h2>
           <span className="stat-caption">Across completed sessions</span>

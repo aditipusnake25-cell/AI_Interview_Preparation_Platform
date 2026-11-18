@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Send } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Send, Sparkles } from "lucide-react";
 import api from "../services/api";
 
 function MockInterview() {
@@ -89,7 +89,7 @@ function MockInterview() {
   };
 
   return (
-    <div className="page-container narrow-container">
+    <div className="page-container interview-page">
       <div className="mock-topline">
         <button className="back-button" onClick={() => navigate("/create-interview")}>
           <ArrowLeft size={17} /> Exit practice
@@ -101,13 +101,34 @@ function MockInterview() {
         <div className="progress-fill" style={{ width: `${progress}%` }} />
       </div>
 
-      <div className="mock-heading">
-        <p className="eyebrow">{session.role} · {session.experienceLevel}</p>
-        <h1>Mock interview</h1>
-        <p>Take your time and answer as if you were speaking to an interviewer.</p>
-      </div>
+      <div className="interview-layout">
+      <aside className="interview-rail">
+        <span className="rail-icon"><Sparkles size={19} /></span>
+        <span className="eyebrow">YOUR SESSION</span>
+        <h2>{session.role}</h2>
+        <p className="rail-level">{session.experienceLevel} level</p>
+        <div className="rail-divider" />
+        <span className="rail-label">QUESTION MAP</span>
+        <ol className="question-map">
+          {session.questions.map((item, questionIndex) => (
+            <li
+              key={`${item.question}-${questionIndex}`}
+              className={questionIndex === index ? "current" : questionIndex < index ? "complete" : ""}
+            >
+              <span>{questionIndex < index ? <CheckCircle2 size={15} /> : questionIndex + 1}</span>
+              <span>Question {questionIndex + 1}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="rail-tip"><strong>Take a breath.</strong><span>Clear, thoughtful answers matter more than speed.</span></div>
+      </aside>
 
       <section className="question-card">
+        <div className="mock-heading">
+          <p className="eyebrow">QUESTION {index + 1} OF {total}</p>
+          <h1>Take a moment to think it through.</h1>
+          <p>Answer as if you were speaking to an interviewer. You can review your feedback before continuing.</p>
+        </div>
         <span className="question-number">QUESTION {index + 1}</span>
         <h2>{question.question}</h2>
         {question.category && <span className="topic-chip">{question.category}</span>}
@@ -171,6 +192,7 @@ function MockInterview() {
           </div>
         )}
       </section>
+      </div>
     </div>
   );
 }

@@ -31,8 +31,8 @@ function InterviewResult() {
       <section className="result-hero">
         <div className="result-award"><Award size={36} /></div>
         <p className="eyebrow">PRACTICE SESSION COMPLETE</p>
-        <h1>Great work!</h1>
-        <p>You finished your mock interview for <strong>{session.role}</strong>.</p>
+        <h1>Practice makes progress.</h1>
+        <p>You finished your mock interview for <strong>{session.role}</strong>. Take a look at what went well and where to go next.</p>
 
         <div className="result-score">
           <strong>{average}</strong>
@@ -49,7 +49,7 @@ function InterviewResult() {
         </p>
       </section>
 
-      <section className="section-heading">
+      <section className="section-heading result-section-heading">
         <div>
           <h2>Answer review</h2>
           <p>Revisit your responses and AI feedback.</p>
